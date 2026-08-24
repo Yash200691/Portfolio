@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="sphereGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- Main Sphere Base -->
+  <rect width="512" height="512" fill="url(#sphereGrad)"/>
+  
+  <!-- Outer Badge Ring -->
+  <circle cx="256" cy="256" r="200" fill="#ffffff" stroke="#e2e8f0" stroke-width="8" filter="url(#shadow)"/>
+  <circle cx="256" cy="256" r="185" fill="none" stroke="#f8fafc" stroke-width="4"/>
+
+  <!-- Centered Scaled Icon -->
+  <g transform="translate(136, 136) scale(1.875)">
+    <path d="M64.002 8.576 128 119.424H0Zm0 0"/>
+  </g>
+</svg>

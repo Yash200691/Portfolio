@@ -48,7 +48,7 @@ const Career = () => {
                 <h4>Lead, Web3 Wing & Senior Developer</h4>
                 <h5>CRISPR Club, IIIT Nagpur</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2026</h3>
             </div>
             <p>
               Led the club's Web3 wing, delivering 6+ workshops to 120+

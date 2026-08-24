@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="sphereGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- Main Sphere Base -->
+  <rect width="512" height="512" fill="url(#sphereGrad)"/>
+  
+  <!-- Outer Badge Ring -->
+  <circle cx="256" cy="256" r="200" fill="#ffffff" stroke="#e2e8f0" stroke-width="8" filter="url(#shadow)"/>
+  <circle cx="256" cy="256" r="185" fill="none" stroke="#f8fafc" stroke-width="4"/>
+
+  <!-- Centered Scaled Icon -->
+  <g transform="translate(136, 136) scale(1.875)">
+    <path fill="#130754" d="M46.236 7.567h13.99v29.047h-13.99Zm0 59.668h13.99V96.28h-13.99Z"/><path fill="#ffca00" d="M46.236 45.092h13.99v13.705h-13.99Z"/><path fill="#130754" d="M23.763 31.446h13.989V128h-13.99ZM68.245 91.2h13.99v29.046h-13.99Zm0-59.72h13.99v29.047h-13.99Z"/><path fill="#e70488" d="M68.245 69.011h13.99v13.705h-13.99Z"/><path fill="#130754" d="M90.248 0h13.99v96.554h-13.99Z"/>
+  </g>
+</svg>

@@ -87,7 +87,7 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
+              <h3>DEVELOPER</h3>
               <h4>Full-Stack Development</h4>
               <p>
                 I build and deploy production web applications using the MERN
@@ -100,14 +100,18 @@ const WhatIDo = () => {
                 <div className="what-tags">TypeScript</div>
                 <div className="what-tags">React.js</div>
                 <div className="what-tags">Next.js</div>
+                <div className="what-tags">HTML5 / CSS3</div>
+                <div className="what-tags">Tailwind CSS</div>
                 <div className="what-tags">Node.js</div>
                 <div className="what-tags">Express.js</div>
                 <div className="what-tags">MongoDB</div>
+                <div className="what-tags">REST APIs</div>
                 <div className="what-tags">Socket.IO</div>
                 <div className="what-tags">WebRTC</div>
                 <div className="what-tags">Redis</div>
+                <div className="what-tags">JWT / OAuth</div>
                 <div className="what-tags">AWS</div>
-                <div className="what-tags">Solidity</div>
+                <div className="what-tags">Git & GitHub</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -140,13 +144,14 @@ const WhatIDo = () => {
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Python</div>
+                <div className="what-tags">C++</div>
                 <div className="what-tags">TensorFlow</div>
                 <div className="what-tags">Keras</div>
                 <div className="what-tags">OpenCV</div>
                 <div className="what-tags">YOLOv8</div>
                 <div className="what-tags">NumPy</div>
                 <div className="what-tags">Pandas</div>
-                <div className="what-tags">C++</div>
+                <div className="what-tags">Deep Learning</div>
               </div>
               <div className="what-arrow"></div>
             </div>

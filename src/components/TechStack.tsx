@@ -13,21 +13,34 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
-  "/images/mongo.webp",
+  "/images/tech/javascript.svg",
+  "/images/tech/typescript.svg",
+  "/images/tech/python.svg",
+  "/images/tech/cplusplus.svg",
+  "/images/tech/react.svg",
+  "/images/tech/nextjs.svg",
+  "/images/tech/tailwindcss.svg",
+  "/images/tech/nodejs.svg",
+  "/images/tech/express.svg",
+  "/images/tech/mongodb.svg",
+  "/images/tech/redis.svg",
+  "/images/tech/socketio.svg",
+  "/images/tech/tensorflow.svg",
+  "/images/tech/opencv.svg",
+  "/images/tech/numpy.svg",
+  "/images/tech/pandas.svg",
+  "/images/tech/amazonwebservices.svg",
+  "/images/tech/git.svg",
+  "/images/tech/github.svg",
+  "/images/tech/postman.svg",
+  "/images/tech/vercel.svg",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
-const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
+const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
 
-const spheres = [...Array(30)].map(() => ({
-  scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+const spheres = [...Array(32)].map(() => ({
+  scale: [0.75, 0.9, 1.05, 0.85, 1][Math.floor(Math.random() * 5)],
 }));
 
 type SphereProps = {
@@ -50,14 +63,18 @@ function SphereGeo({
   useFrame((_state, delta) => {
     if (!isActive) return;
     delta = Math.min(0.1, delta);
+    // Lower gather center (y = -2.6) keeps spheres below the TechStack title
+    const currentPos = api.current!.translation();
+    const target = new THREE.Vector3(0, -2.6, 0);
     const impulse = vec
-      .copy(api.current!.translation())
+      .copy(currentPos)
+      .sub(target)
       .normalize()
       .multiply(
         new THREE.Vector3(
-          -50 * delta * scale,
-          -150 * delta * scale,
-          -50 * delta * scale
+          -45 * delta * scale,
+          -120 * delta * scale,
+          -45 * delta * scale
         )
       );
 
@@ -67,9 +84,9 @@ function SphereGeo({
   return (
     <RigidBody
       linearDamping={0.75}
-      angularDamping={0.15}
+      angularDamping={0.2}
       friction={0.2}
-      position={[r(20), r(20) - 25, r(20) - 10]}
+      position={[r(15), r(15) - 18, r(15) - 6]}
       ref={api}
       colliders={false}
     >
@@ -151,56 +168,58 @@ const TechStack = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
         new THREE.MeshPhysicalMaterial({
           map: texture,
-          emissive: "#ffffff",
+          emissive: "#151515",
           emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
+          emissiveIntensity: 0.15,
+          metalness: 0.1,
+          roughness: 0.3,
+          clearcoat: 0.5,
+          clearcoatRoughness: 0.1,
         })
     );
   }, []);
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2>My Techstack</h2>
 
       <Canvas
         shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
+        gl={{ alpha: true, stencil: false, depth: false, antialias: true }}
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+        onCreated={(state) => (state.gl.toneMappingExposure = 1.3)}
         className="tech-canvas"
       >
-        <ambientLight intensity={1} />
+        <ambientLight intensity={1.2} />
         <spotLight
           position={[20, 20, 25]}
           penumbra={1}
-          angle={0.2}
+          angle={0.3}
           color="white"
           castShadow
           shadow-mapSize={[512, 512]}
         />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
+        <directionalLight position={[0, 6, 8]} intensity={1.5} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
           {spheres.map((props, i) => (
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[i % materials.length]}
               isActive={isActive}
             />
           ))}
         </Physics>
         <Environment
           files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
+          environmentIntensity={0.6}
           environmentRotation={[0, 4, 2]}
         />
         <EffectComposer enableNormalPass={false}>

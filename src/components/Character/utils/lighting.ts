@@ -3,12 +3,15 @@ import { RGBELoader } from "three-stdlib";
 import { gsap } from "gsap";
 
 const setLighting = (scene: THREE.Scene) => {
-  // Ambient light gives base color so model doesn't appear white before lights turn on
-  const ambientLight = new THREE.AmbientLight(0x1a0a2e, 0.8);
+  // Ambient light for natural base colors
+  const ambientLight = new THREE.AmbientLight(0xfff0f5, 0.9);
   scene.add(ambientLight);
 
-  const directionalLight = new THREE.DirectionalLight(0xc7a9ff, 0);
-  directionalLight.intensity = 0;
+  const frontLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  frontLight.position.set(0, 10, 15);
+  scene.add(frontLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xc7a9ff, 0.6);
   directionalLight.position.set(-0.47, -0.32, -1);
   directionalLight.castShadow = true;
   directionalLight.shadow.mapSize.width = 1024;
@@ -42,12 +45,12 @@ const setLighting = (scene: THREE.Scene) => {
   const ease = "power2.inOut";
   function turnOnLights() {
     gsap.to(scene, {
-      environmentIntensity: 0.64,
+      environmentIntensity: 0.8,
       duration: duration,
       ease: ease,
     });
     gsap.to(directionalLight, {
-      intensity: 1,
+      intensity: 1.2,
       duration: duration,
       ease: ease,
     });
