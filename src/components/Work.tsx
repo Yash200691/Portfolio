@@ -46,6 +46,33 @@ const Work = () => {
     ScrollTrigger.getById("work")?.kill();
   };
 }, []);
+  const projects = [
+    {
+      title: "2D Metaverse Platform",
+      category: "Full-Stack / Real-Time",
+      tools: "MERN Stack, Phaser.js, Socket.IO, WebRTC, Redis, JWT",
+      link: "https://github.com/Yash200691/2D-Metaverse",
+    },
+    {
+      title: "Pedestrian Detection & Tracking",
+      category: "AI / Computer Vision",
+      tools: "Python, YOLOv8, ByteTrack, OpenCV, NumPy",
+      link: "https://github.com/Yash200691/Pedestrian-Tracking",
+    },
+    {
+      title: "StreamSphere",
+      category: "Backend / Streaming",
+      tools: "Node.js, Express.js, MongoDB, REST APIs",
+      link: "https://github.com/Yash200691/StreamSphere",
+    },
+    {
+      title: "AI Code Review Agent",
+      category: "DevTools / AI",
+      tools: "GitHub API, AI Reviewers, Inline Comments, PR Automation",
+      link: "#",
+    },
+  ];
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
@@ -53,21 +80,25 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
+          {projects.map((project, index) => (
             <div className="work-box" key={index}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
 
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{project.title}</h4>
+                    <p>{project.category}</p>
                   </div>
                 </div>
                 <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <p>{project.tools}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage
+                image="/images/placeholder.webp"
+                alt={project.title}
+                link={project.link}
+              />
             </div>
           ))}
         </div>
