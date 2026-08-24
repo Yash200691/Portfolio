@@ -3,6 +3,10 @@ import { RGBELoader } from "three-stdlib";
 import { gsap } from "gsap";
 
 const setLighting = (scene: THREE.Scene) => {
+  // Ambient light gives base color so model doesn't appear white before lights turn on
+  const ambientLight = new THREE.AmbientLight(0x1a0a2e, 0.8);
+  scene.add(ambientLight);
+
   const directionalLight = new THREE.DirectionalLight(0xc7a9ff, 0);
   directionalLight.intensity = 0;
   directionalLight.position.set(-0.47, -0.32, -1);

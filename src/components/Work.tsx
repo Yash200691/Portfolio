@@ -52,24 +52,28 @@ const Work = () => {
       category: "Full-Stack / Real-Time",
       tools: "MERN Stack, Phaser.js, Socket.IO, WebRTC, Redis, JWT",
       link: "https://github.com/Yash200691/2D-Metaverse",
+      image: "/images/metaverse.jpg",
     },
     {
       title: "Pedestrian Detection & Tracking",
       category: "AI / Computer Vision",
       tools: "Python, YOLOv8, ByteTrack, OpenCV, NumPy",
       link: "https://github.com/Yash200691/Pedestrian-Tracking",
+      image: "/images/pedestrian.jpg",
     },
     {
       title: "StreamSphere",
       category: "Backend / Streaming",
       tools: "Node.js, Express.js, MongoDB, REST APIs",
       link: "https://github.com/Yash200691/StreamSphere",
+      image: "/images/streamsphere.jpg",
     },
     {
       title: "AI Code Review Agent",
       category: "DevTools / AI",
       tools: "GitHub API, AI Reviewers, Inline Comments, PR Automation",
       link: "#",
+      image: "/images/ai-code-review.jpg",
     },
   ];
 
@@ -95,7 +99,7 @@ const Work = () => {
                 <p>{project.tools}</p>
               </div>
               <WorkImage
-                image="/images/placeholder.webp"
+                image={project.image}
                 alt={project.title}
                 link={project.link}
               />
